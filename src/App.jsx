@@ -1,30 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 //router
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import useToken from './useToken.jsx';
 //components
-import Dashboard from './components/Dashboard.jsx'
-import Preferences from './components/Preferences.jsx'
-import Login from './components/Login.jsx'
+import Dashboard from './components/Dashboard/Dashboard.jsx';
+import Popular from './components/Popular/Popular.jsx';
 
 
-export default function App() {
-    const {token, setToken} = useToken();
-
-    if (!token) {
-        return <Login setToken={setToken} />
-    }
-
+function App() {
     return (
         <div className='wrapper'>
-            <h1>App</h1>
+            <h1>Your movie Database</h1>
             <BrowserRouter>
-            <Routes>                   
-             <Route path="/dashboard" element={ <Dashboard />} />            
-             <Route path="/preferences" element={ <Preferences />} />
-            </Routes>
+                <Routes>           
+                <Route path="/" element={ 
+                <Dashboard> 
+                    <Route path="popular" element={<Popular />} />
+                </Dashboard>} />                 
+                </Routes>
             </BrowserRouter>
            
         </div>
     )
 }
+
+
+export default App;
