@@ -6,6 +6,7 @@ export default function Dashboard() {
   return (
     <section>
       <Link to="popular">Popular</Link>
+      <Link to="my-list">My List</Link>
       <Outlet />
     </section>
   )
