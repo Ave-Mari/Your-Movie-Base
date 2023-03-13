@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Wrapper } from './Popular.styles.js';
 
 export default function Popular() {
     const [movieList, setMovieList] = useState([]);
@@ -20,21 +21,21 @@ export default function Popular() {
     }, []);
 
   return (
-    <section>
+    <Wrapper>
         <h2>Popular Movies</h2>        
         <ul>         
                 {movieList.map((item) => {
                     const {original_title, release_date, poster_path, id} = item;
                     return (
-                        <li key={id}>
+                        <li key={id}>                       
+                        <img src={`https://image.tmdb.org/t/p/original${poster_path}`} alt={original_title} />
                         <p>{original_title}</p>
                         <p>{release_date}</p>
-                        <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={original_title} />
                         </li>
                     )
                 })}          
         </ul>
         
-    </section>
+    </Wrapper>
   )
 }
