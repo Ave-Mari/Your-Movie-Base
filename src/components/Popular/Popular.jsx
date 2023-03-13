@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 export default function Popular() {
@@ -21,8 +21,24 @@ export default function Popular() {
   }, []);
 
   return (
-    <div>
+    <section>
+        <h2>Trending now</h2>
         
-    </div>
+        <ul>
+         
+                {movieList.map((item) => {
+                    const {original_title, release_date, poster_path, id} = item;
+                    return (
+                        <li key={id}>
+                        <p>{original_title}</p>
+                        <p>{release_date}</p>
+                        <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={original_title} />
+                        </li>
+                    )
+                })}
+          
+        </ul>
+        
+    </section>
   )
 }
