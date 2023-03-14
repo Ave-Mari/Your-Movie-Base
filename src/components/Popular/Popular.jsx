@@ -29,8 +29,8 @@ export default function Popular() {
                     return (
                         <li key={id}>                       
                         <img src={`https://image.tmdb.org/t/p/original${poster_path}`} alt={original_title} />
-                        <p>{original_title}</p>
-                        <p>{release_date}</p>
+                        <p class="title">{original_title}</p>
+                        <p class="date">{release_date}</p>
                         </li>
                     )
                 })}          
