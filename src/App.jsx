@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 //router
 import { Route, Routes } from 'react-router-dom';
+//style
+import './main.css';
 //components
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import MyList from './components/MyList/MyList.jsx';
@@ -13,7 +15,7 @@ function App() {
             <h1>Your movie Database</h1>
                 <Routes>           
                     <Route path="/" element={ <Dashboard /> }>                  
-                        <Route index element={<>some content</>} /> 
+                        <Route index element={<>...app description...</>} /> 
                         <Route path="popular" element={<Popular />} /> 
                         <Route path="my-list" element={<MyList />} /> 
                     </Route>
