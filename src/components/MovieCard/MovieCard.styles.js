@@ -57,5 +57,14 @@ export const Wrapper = styled.li`
             }
 
         }
+
+        .like {
+            color: rgb(213, 28, 62);
+       
+            &:hover {
+                color: rgb(127, 13, 34);
+            }
+
+        }
     
 `;
