@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { Wrapper } from './MovieCard.styles.js';
 
-export default function MovieCard( { poster_path, original_title, release_date, id, likeSwitcher } ) {
-
-  const [like, setLike] = useState(false);
+export default function MovieCard( { poster_path, original_title, release_date, id, likeSwitcher, like } ) {
+ 
   return (
     <Wrapper key={id} like={like}>
-        <button onClick={() => {
-          setLike(!like); 
-          likeSwitcher(id, like);
+        <button 
+          onClick={() => {
+          likeSwitcher(id);
           }}
-          className={like ? 'like' : null}
+          className={like ? 'like' : 'no-like'}
           >
             ❤
           </button>
@@ -20,3 +19,6 @@ export default function MovieCard( { poster_path, original_title, release_date, 
     </Wrapper>
   )
 }
+
+
+//https://www.npmjs.com/package/react-bootstrap-icons
