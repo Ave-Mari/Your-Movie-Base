@@ -44,17 +44,13 @@ export const Wrapper = styled.li`
         button {
             border: none;
             background: none;
-            font-size: 31px;
-            color: rgb(234, 224, 239);
-            text-shadow: #AB1834 3px 0px 5px;
+            font-size: 37px;            
+            -webkit-text-stroke: 2px #3b0215;
             position: absolute;
-            top: 2%;
+            bottom: 1%;
             right: 3%;
 
-            &:hover {
-                color: rgb(239, 178, 227);
-                cursor: pointer;
-            }
+           
 
         }
 
@@ -63,6 +59,15 @@ export const Wrapper = styled.li`
        
             &:hover {
                 color: rgb(127, 13, 34);
+            }
+
+        }
+        .no-like {
+            color: rgb(234, 224, 239);
+       
+            &:hover {
+                color: rgb(239, 178, 227);
+                cursor: pointer;
             }
 
         }
