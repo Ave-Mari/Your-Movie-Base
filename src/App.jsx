@@ -10,7 +10,7 @@ import Popular from './components/Popular/Popular.jsx';
 
 
 function App() {
-
+    
     const [movieList, setMovieList] = useState([]);
 
     const [userList, setUserList] = useState([]);
@@ -21,26 +21,25 @@ function App() {
         try {
           const res = await fetch(url);
           const data = await res.json();
-          console.log(data)
           setMovieList(data.results);
         } catch (error) {
           console.log('error: ', error)
         }
       }
-      getData() 
-      
+      getData();
+       
     }, []);
 
-    const likeSwitcher = (id, like) => {
+
+    const likeSwitcher = (id) => {         
         movieList.map((item) => {
-            if (item.id === id) {
-                setUserList(item);
+            if (item.id === id) { 
+                item.like = !item.like
             }
-            return item;
-        })
-
+           return item;
+        });
+        setMovieList([...movieList]);
     }
-
 
     return (
         <div className='wrapper'>
@@ -52,9 +51,7 @@ function App() {
                             element={
                             <Popular 
                                 movieList={movieList}
-                                likeSwitcher={likeSwitcher}
-                                // id={id}
-                                // like={like}
+                                likeSwitcher={likeSwitcher}     
                             />} /> 
                         <Route path="my-list" element={<MyList />} /> 
                     </Route>
