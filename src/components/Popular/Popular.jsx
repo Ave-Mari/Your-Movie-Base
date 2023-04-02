@@ -13,7 +13,7 @@ export default function Popular({ movieList, likeSwitcher }) {
         <h2>Popular Movies</h2>        
         <ul>         
                 {movieList.map((item) => {
-                    const {original_title, release_date, poster_path, id} = item;
+                    const {original_title, release_date, poster_path, id, like} = item;
                     return (
                         <MovieCard
                             id={id}
@@ -21,7 +21,7 @@ export default function Popular({ movieList, likeSwitcher }) {
                             poster_path={poster_path}
                             release_date={release_date}
                             likeSwitcher={likeSwitcher}
-                            // like={like}
+                            like={like}
                         />
                     )
                 })}          
