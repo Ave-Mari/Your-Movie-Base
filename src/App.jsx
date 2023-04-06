@@ -13,7 +13,7 @@ function App() {
     
     const [movieList, setMovieList] = useState([]);
 
-    const [userList, setUserList] = useState([]);
+    const [userFavList, setUserFavList] = useState([]);
 
     useEffect(() => {
       const url = 'https://api.themoviedb.org/3/movie/popular?api_key=c6b7d41b5120297875bbebfc97e4aa5e';
@@ -41,6 +41,12 @@ function App() {
         setMovieList([...movieList]);
     }
 
+    const addToFav = () => {
+        const favList = movieList.filter((item) => item.like === true);
+        setUserFavList([...favList]);
+    }
+
+
     return (
         <div className='wrapper'>
             <h1>Your movie Database</h1>
@@ -52,8 +58,17 @@ function App() {
                             <Popular 
                                 movieList={movieList}
                                 likeSwitcher={likeSwitcher}     
+                                addToFav={addToFav}
                             />} /> 
-                        <Route path="my-list" element={<MyList />} /> 
+                        <Route 
+                            path="my-list" 
+                            element={
+                            <MyList 
+                                userFavList={userFavList}
+                            />
+                        } 
+                            
+                        /> 
                     </Route>
                         
                 </Routes>
