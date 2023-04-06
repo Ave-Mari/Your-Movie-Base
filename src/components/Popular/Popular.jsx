@@ -5,7 +5,7 @@ import MovieCard from './../MovieCard/MovieCard.jsx'
 import { Wrapper } from './Popular.styles.js'
 
 
-export default function Popular({ movieList, likeSwitcher }) {
+export default function Popular({ movieList, likeSwitcher, addToFav }) {
    
 
   return (
@@ -22,6 +22,7 @@ export default function Popular({ movieList, likeSwitcher }) {
                             release_date={release_date}
                             likeSwitcher={likeSwitcher}
                             like={like}
+                            addToFav={addToFav}
                         />
                     )
                 })}          
